@@ -1,6 +1,5 @@
 import heapq
 
-
 def maxProbability(n, edges, succProb, start, end):
     # Step 1: Create the graph as an adjacency list
     graph = {i: [] for i in range(n)}

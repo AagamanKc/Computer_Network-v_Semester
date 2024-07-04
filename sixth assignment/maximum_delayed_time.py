@@ -5,13 +5,8 @@ ui is the source node,
 vi is the target node, and
 wi is the time it takes for a signal to travel from source to target.
 
-We
-will
-send
-a
-signal
-from a given
 
+We will send a signal from a given
 node
 k.Return
 the
