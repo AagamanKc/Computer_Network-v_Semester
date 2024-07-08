@@ -1,7 +1,7 @@
-# Computer_Network-v_Semester
+# Computer_Network-v_Semester <br/>
 
-group of:-
-Aagaman k.c. (01)
-Ajay Panta (02)
-Chandra Kamal Singh (10)
-Gaurab Bhujel (14)
+group of:-<br/>
+Aagaman k.c. (01)<br/>
+Ajay Panta (02)<br/>
+Chandra Kamal Singh (10)<br/>
+Gaurab Bhujel (14)<br/>
