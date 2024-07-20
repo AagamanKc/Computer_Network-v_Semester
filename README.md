@@ -10,7 +10,7 @@
 
 <p><a href="https://github.com/chandrakamalsingh007" style="color: #32cd32; text-decoration: none;">Chandra Kamal Singh (10)</a></p>
 
-<p><a href="https://github.com/gauravbhujel07" style="color: #ff69b4; text-decoration: none;">Gaurab Bhujel (14)</a></p>
+<p><a href="https://github.com/gauravbhujel07" style="color: #ff69b4; text-decoration: none;">Gaurav Bhujel (14)</a></p>
 
 </div>
 
