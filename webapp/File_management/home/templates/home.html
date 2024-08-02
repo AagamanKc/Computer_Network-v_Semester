@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File Upload</title>
+    {% load static %}
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8bbd0;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .upper-container {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .upload-form-container, .project-detail-container {
+            background: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin: 10px;
+        }
+
+        .upload-form-container {
+            width: 65%;
+        }
+
+        .project-detail-container {
+            width: 30%;
+        }
+
+        .title {
+            color: #880e4f;
+            margin-bottom: 20px;
+            text-align: center;
+            font-weight: bold;
+            font-size: 1.5em;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+            text-align: left;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            color: #880e4f;
+            text-align: center;
+        }
+
+        .form-group input[type="text"],
+        .form-group textarea,
+        .form-group input[type="file"] {
+            width: 90%;
+            padding: 8px;
+            border: 2px solid #880e4f;
+            border-radius: 4px;
+            margin: 0 auto;
+            display: block;
+        }
+
+        .submit-btn {
+            background-color: #880e4f;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .submit-btn:hover {
+            background-color: #560027;
+        }
+
+        .separator {
+            width: 100%;
+            height: 2px;
+            background-color: #880e4f;
+            margin: 30px 0;
+        }
+
+        .document-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        .document-table th,
+        .document-table td {
+            padding: 12px;
+            text-align: center;
+            border-bottom: 1px solid #880e4f;
+        }
+
+        .document-table th {
+            background-color: #880e4f;
+            color: white;
+        }
+
+        .doc-image {
+            max-width: 100px;
+            height: auto;
+        }
+
+        .project-details {
+            text-align: left;
+        }
+
+        .project-details h3 {
+            color: #880e4f;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        .project-details p {
+            color: #880e4f;
+            margin-bottom: 5px;
+            text-align: center;
+        }
+
+        .project-details ul {
+            list-style: none;
+            padding: 0;
+            text-align: center;
+        }
+
+        .project-details ul li {
+            margin: 5px 0;
+        }
+
+        .project-details ul li a {
+            color: #880e4f;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .project-details ul li a:hover {
+            text-decoration: underline;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="upper-container">
+            <div class="upload-form-container">
+                <h1 class="title">Upload Document</h1>
+                <form method="POST" enctype="multipart/form-data" class="upload-form">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <label for="id_title">Title:</label>
+                        <input type="text" name="title" id="id_title" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="id_description">Description:</label>
+                        <textarea name="description" id="id_description" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="id_image">Image:</label>
+                        <input type="file" name="image" id="id_image">
+                    </div>
+                    <div class="form-group">
+                        <label for="id_text_file">Text File:</label>
+                        <input type="file" name="text_file" id="id_text_file">
+                    </div>
+                    <div class="form-group">
+                        <label for="id_pdf_file">PDF File:</label>
+                        <input type="file" name="pdf_file" id="id_pdf_file">
+                    </div>
+                    <button type="submit" class="submit-btn">Upload</button>
+                </form>
+            </div>
+
+            <div class="project-detail-container">
+                <div class="project-details">
+                    <h3>Project Details</h3>
+                    <p>Submitted by:</p>
+                    <ul>
+                        <li><a href="https://github.com/AagamanKc">Aagaman K.C. (01)</a></li>
+                        <li><a href="https://github.com/Ajaypanta10">Ajay Panta (02)</a></li>
+                        <li><a href="https://github.com/chandrakamalsingh007">Chandra Kamal Singh (10)</a></li>
+                        <li><a href="https://github.com/gauravbhujel07">Gaurav Bhujel (14)</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="separator"></div>
+
+        <h2 class="title">Uploaded Documents</h2>
+        <table class="document-table">
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Description</th>
+                    <th>Image</th>
+                    <th>Text File</th>
+                    <th>PDF File</th>
+                    <th>Uploaded At</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for document in documents %}
+                <tr>
+                    <td>{{ document.title }}</td>
+                    <td>{{ document.description }}</td>
+                    <td>
+                        {% if document.image %}
+                            <a href="{{ document.image.url }}" download>
+                                <img src="{{ document.image.url }}" alt="{{ document.title }}" class="doc-image">
+                            </a>
+                        {% endif %}
+                    </td>
+                    <td>
+                        {% if document.text_file %}
+                            <a href="{{ document.text_file.url }}" download>Download Text File</a>
+                        {% endif %}
+                    </td>
+                    <td>
+                        {% if document.pdf_file %}
+                            <a href="{{ document.pdf_file.url }}" download>Download PDF File</a>
+                        {% endif %}
+                    </td>
+                    <td>{{ document.uploaded_at }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    {% block start %}
+
+    {% endblock %}
+
+</body>
+</html>

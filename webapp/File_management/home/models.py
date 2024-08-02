@@ -7,6 +7,5 @@ class Document(models.Model):
     text_file = models.FileField(upload_to='text_files/', blank=True, null=True)
     pdf_file = models.FileField(upload_to='pdf_files/', blank=True, null=True)
     uploaded_at = models.DateTimeField(auto_now_add=True)
-
     def __str__(self):
         return self.title
