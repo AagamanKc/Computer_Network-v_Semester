@@ -1,0 +1,48 @@
+1. What happens when you type facebook.com on your browser and enter ? Write a full report on it.
+➢ Before explaining the working mechanism let ́s explain some tech terms and concepts that are involved :
+
+• Uniform Resource Locator (URL): It has the location of the resources which we want to access. It is an address of the place where we want to go to interact with or find information. If you want to visit your friend’s house for some work or to get information, you need their address. The same thing goes here in this big web world: we have to give an address of the website which we want to access. The web site is like the house and the URL is the address.
+
+• Domain Name Service (DNS) : All computers connected to internet are identified by a unique number -IP address-, like our houses, but remenber all these numbers it could difficult, But what if you don't know the IP address of the computer you want to connect to? to answer these questions is the Domain Name Service or DNS. The DNS is a distributed database which keeps track of computer's names and their corresponding IP addresses on the Internet.
+
+• Transmission Control Protocol / Internet Protocol (TCP /IP): Internet is supported by and use many technologies, one of them are protocols that allow comunications between devices and how to do it; a protocol is a set of rules specifying how computers should communicate with each other over a network. among these protocols the set of TCP/IP are the mainly that make it possible all magic happens.
+
+• Firewall : According to webopedia : "A firewall is a network security system designed to prevent unauthorized access to or from a private network. Firewalls can be implemented as
+both hardware and software, or a combination of both. Network firewalls are frequently used to prevent unauthorized Internet users from accessing private networks connected to the Internet, especially intranets. All messages entering or leaving the intranet pass through the firewall, which examines each message and blocks those that do not meet the specified security criteria"
+
+• HTTPS / SSL : SSL stands for Secured Sockets Layer. It allows secure Internet communication of sensitive information
+through encryption and authentication. Encryption means the client can request that the TCP connection to
+the server be encrypted. Authentication means
+the client can trust that the server is who it claims to
+be. We see SSL in action whenever we visit SSL-enabled websites on modern browsers. When the browser requests a web site using the https protocol instead of http, it’s telling the web server it wants an SSL encrypted connection.
+
+• Load-balancer : Ever wonder how Facebook, Linkedin, Twitter, youtube, Nextflix and other web giants are handling such huge amounts of traffic and requests? They don’t have just one server, but tens of thousands of them. In order to achieve this, web traffic needs to be distributed to these servers, and that is the role of a load-balancer.
+
+• Server: A server is a type of computer or device on a network that manages network resources. Servers are often dedicated, meaning that they perform no other tasks
+besides their server tasks: Web server: A web server is a software that storage and delivers the web pages that we query throught browsers. Application Server: An application server is a server that hosts applications ( account, crm, ERP ́s, etc..) used by companies and handles all operations between users and these applications.
+
+• Database : A database is a collection of information that is organized so that it can be easily accessed, managed and updated. Computer databases typically contain aggregations of data records or files, containing the data for applications used by companies i.e: about sales transactions or interactions with specific customers.
+So what happens when you type www.facebook.com
+When you type an address of a popular site into your browser. i.e: www.google.com or www.facebook.com and hit enter key, what are you really doing is a request throught its URL (Uniform Resource Locator) every single URL on the internet has a unique IP address assigned to it. and then...
+
+1. The browser checks the cache for a DNS record to find the corresponding IP address of www.facebook.com, which stores DNS information that the computer has recently retrieved.
+
+2. Second, the browser checks the OS cache. If it is not in the browser cache, the browser will make a system call
+(i.e., gethostname on Windows) to your underlying computer OS to fetch the record since the OS also maintains a cache of DNS records.
+
+3. Third, it checks the router cache. If it’s not on your computer, the browser will communicate with the router that maintains its’ own cache of DNS records.
+
+4. Fourth, it checks the ISP cache. If all steps fail, the browser will move on to the ISP. Your ISP maintains its’ own DNS server, which includes a cache of DNS records, which the browser would check with the last hope of finding your requested URL
+
+5. If ISP's DNS don't have the record they ask the Root DNS servers. they contact the root nameservers. These thirteen nameservers contain pointers for all of the Top-Level Domains (TLDs), such as '.com', '.net' and '.org'. If you are looking for 'www.facebook.com.', the root nameservers look at the TLD for the domain - 'www.facebook.com'- and direct the query to the TLD DNS nameservers responsible for all '.com' pointers.
+
+6. Authoritative nameservers contain all of the DNS records for a given domain, such as host records (which store IP addresses), MX records (which identify nameservers for a domain), and so on. Since you are looking for the IP address of 'www.facebook.com', the recursive server queries the authoritative nameservers and asks for the host record for 'www.facebook.com'.
+
+7. The recursive DNS server receives the host record for 'www.facebook.com' from the authoritative nameservers, If anyone else requests the host record for 
+'www.facebook.com', the recursive servers will already have the answer.
+
+8. Finally, the recursive server gives the host record back to your computer. Your computer stores the record in its
+
+cache, reads the IP address from the record, then passes this information to the web browser. Your browser then opens a connection to the IP address ' 31.13.67.35' on port 80 (for HTTP).
+
+ • Facebook receives millions of requests instantly, to respond to those requests it has hundreds of servers spread around the world, those requests are received by a load balancer server that encrypt that comunication over port 443 (https) between you and facebook using an SSL certificate and distributes that request through their web servers.
