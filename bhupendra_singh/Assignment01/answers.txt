@@ -1,0 +1,14 @@
+IP CONFIGURATION
+IP Address:172.0.22.142
+Subnet Mask:255.255.248.0
+Network Address: 172.0.16.0
+Broadcast Address: 172.0.23.255
+
+
+
+How many end devices can our network support?
+-Network bits =21
+-Host bits = 11
+-Hence, supported end devices=2^11-2=2046
+
+-here 2 is subtracted because one is for Network Address and another is for Broadcast Address
